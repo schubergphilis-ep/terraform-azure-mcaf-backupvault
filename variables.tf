@@ -27,7 +27,7 @@ This variable is an object used to configure the Azure Data Protection Backup Va
 - `location`                     (Required) - The Azure region where the Backup Vault should be created.
 - `redundancy`                   (Required) - The redundancy setting for the Backup Vault. Allowed values are `GeoRedundant`, `LocallyRedundant`, and `ZoneRedundant`.
 - `immutability`                 (Required) - The immutability setting for the Backup Vault. Allowed values are `Disabled`, `Locked`, and `Unlocked`.
-- `cross_region_restore_enabled` (Optional) - Whether to enable cross-region restore. Only valid when `redundancy` is `GeoRedundant`, where it defaults to `true`; ignored for other redundancy types. Cannot be disabled once enabled - Azure forces replacement of the vault.
+- `cross_region_restore_enabled` (Optional) - Whether to enable cross-region restore. Only valid when `redundancy` is `GeoRedundant`, where it defaults to `true`. Setting it to `true` with any other redundancy is a validation error; `false` or unset are accepted and have no effect. Cannot be disabled once enabled - Azure forces replacement of the vault.
 - `soft_delete`                  (Optional) - The state of soft delete for this Backup Vault. Allowed values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 - `soft_delete_retention_days`   (Optional) - The number of days for which soft-deleted backups are retained. Defaults to `14`. Required when `soft_delete` is not `Off`.
 - `cmk_key_vault_key_id`         (Optional) - The ID of the Key Vault Key used for customer-managed key encryption. Required when `enable_customer_managed_key` is `true`.

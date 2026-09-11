@@ -45,6 +45,11 @@ backup_vault = {
 }
 ```
 BACKUP_VAULT
+
+  validation {
+    condition     = var.backup_vault.cross_region_restore_enabled != true || var.backup_vault.redundancy == "GeoRedundant"
+    error_message = "cross_region_restore_enabled can only be true when redundancy is \"GeoRedundant\"."
+  }
 }
 
 variable "enable_customer_managed_key" {

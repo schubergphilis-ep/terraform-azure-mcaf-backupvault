@@ -15,10 +15,10 @@ variable "backup_vault" {
     location                     = string
     redundancy                   = string
     immutability                 = string
-    cross_region_restore_enabled = optional(bool, null)
+    cross_region_restore_enabled = optional(bool)
     soft_delete                  = optional(string, "On")
     soft_delete_retention_days   = optional(number, 14)
-    cmk_key_vault_key_id         = optional(string, null)
+    cmk_key_vault_key_id         = optional(string)
   })
   description = <<BACKUP_VAULT
 This variable is an object used to configure the Azure Data Protection Backup Vault.
